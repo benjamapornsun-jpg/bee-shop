@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PureNature Soap - สบู่สมุนไพรธรรมชาติแท้</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-stone-50 text-stone-800 font-sans">
+
+  <!-- Header -->
+  <header class="bg-emerald-800 text-white py-6 shadow-md">
+    <div class="max-w-5xl mx-auto px-4 flex justify-between items-center">
+      <div>
+        <h1 class="text-2xl font-bold tracking-wide">🌿 PureNature Soap</h1>
+        <p class="text-emerald-200 text-sm">สบู่ทำมือจากสารสกัดธรรมชาติ 100%</p>
+      </div>
+      <a href="admin.html" class="text-xs bg-emerald-700 hover:bg-emerald-600 px-3 py-2 rounded">ระบบหลังบ้าน (แพ็คสินค้า) →</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="max-w-5xl mx-auto px-4 py-10 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-emerald-900 mb-3">ดูแลผิวอย่างอ่อนโยนในทุกวัน</h2>
+    <p class="text-stone-600 max-w-xl mx-auto">คัดสรรวัตถุดิบออร์แกนิก ปราศจากสารเคมีอันตราย เลือกสูตรที่เหมาะกับสภาพผิวของคุณ</p>
+  </section>
+
+  <!-- Products (2 SKUs) -->
+  <section class="max-w-5xl mx-auto px-4 pb-12">
+    <div class="grid md:grid-cols-2 gap-8">
+      
+      <!-- SKU 1 -->
+      <div class="bg-white rounded-xl shadow-sm border border-stone-200 overflow-hidden flex flex-col">
+        <img src="public/images/soap-1.jpg" alt="สบู่สมุนไพรขมิ้นชันน้ำผึ้ง" class="w-full h-64 object-cover bg-stone-200">
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-semibold bg-amber-100 text-amber-800 px-2.5 py-1 rounded">SKU: SOAP-001</span>
+            <h3 class="text-xl font-bold mt-2">สบู่สมุนไพรขมิ้นชันน้ำผึ้ง</h3>
+            <p class="text-stone-600 text-sm mt-2">ช่วยลดสิว ลดการอักเสบของผิว เผยผิวกระจ่างใสอย่างเป็นธรรมชาติ เหมาะสำหรับผิวแพ้ง่าย</p>
+          </div>
+          <div class="mt-6 flex items-center justify-between border-t pt-4">
+            <span class="text-2xl font-bold text-emerald-700">฿120</span>
+            <div class="flex items-center space-x-2">
+              <label class="text-sm">จำนวน:</label>
+              <input type="number" id="qty-sku1" min="0" value="1" class="w-16 border rounded px-2 py-1 text-center">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SKU 2 -->
+      <div class="bg-white rounded-xl shadow-sm border border-stone-200 overflow-hidden flex flex-col">
+        <img src="public/images/soap-2.jpg" alt="สบู่สครับกาแฟอาราบิก้า" class="w-full h-64 object-cover bg-stone-200">
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-semibold bg-stone-200 text-stone-800 px-2.5 py-1 rounded">SKU: SOAP-002</span>
+            <h3 class="text-xl font-bold mt-2">สบู่สครับกาแฟอาราบิก้า</h3>
+            <p class="text-stone-600 text-sm mt-2">ผลัดเซลล์ผิวเก่าอย่างอ่อนโยน ลดรอยดำด้าน เพิ่มความเนียนนุ่มชุ่มชื้นให้ผิวกาย</p>
+          </div>
+          <div class="mt-6 flex items-center justify-between border-t pt-4">
+            <span class="text-2xl font-bold text-emerald-700">฿150</span>
+            <div class="flex items-center space-x-2">
+              <label class="text-sm">จำนวน:</label>
+              <input type="number" id="qty-sku2" min="0" value="0" class="w-16 border rounded px-2 py-1 text-center">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Order Form -->
+  <section class="max-w-2xl mx-auto px-4 pb-20">
+    <div class="bg-white p-8 rounded-xl shadow-md border border-stone-200">
+      <h3 class="text-2xl font-bold text-emerald-900 mb-6 border-b pb-3">📦 กรอกข้อมูลจัดส่งสินค้า</h3>
+      
+      <form id="orderForm" class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium mb-1">ชื่อ-นามสกุล ผู้รับ *</label>
+          <input type="text" id="customerName" required placeholder="เช่น สมชาย ใจดี" class="w-full border rounded-lg px-3 py-2">
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1">เบอร์โทรศัพท์ *</label>
+          <input type="tel" id="phone" required placeholder="เช่น 0812345678" class="w-full border rounded-lg px-3 py-2">
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1">ที่อยู่จัดส่ง (พร้อมรหัสไปรษณีย์) *</label>
+          <textarea id="address" rows="3" required placeholder="บ้านเลขที่ ถนน ตำบล อำเภอ จังหวัด รหัสไปรษณีย์" class="w-full border rounded-lg px-3 py-2"></textarea>
+        </div>
+
+        <div class="bg-emerald-50 p-4 rounded-lg flex justify-between items-center">
+          <span class="font-medium">ยอดชำระทั้งหมด (จัดส่งฟรี):</span>
+          <span id="totalDisplay" class="text-2xl font-bold text-emerald-800">฿120</span>
+        </div>
+
+        <button type="submit" id="submitBtn" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3 rounded-lg transition">
+          ยืนยันการสั่งซื้อ
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    const SCRIPT_URL = 'YOUR_GOOGLE_SCRIPT_URL'; // <-- วาง URL ของ Google Apps Script ที่นี่
+
+    const qty1Input = document.getElementById('qty-sku1');
+    const qty2Input = document.getElementById('qty-sku2');
+    const totalDisplay = document.getElementById('totalDisplay');
+
+    function calculateTotal() {
+      const q1 = parseInt(qty1Input.value) || 0;
+      const q2 = parseInt(qty2Input.value) || 0;
+      const total = (q1 * 120) + (q2 * 150);
+      totalDisplay.textContent = `฿${total}`;
+      return { q1, q2, total };
+    }
+
+    qty1Input.addEventListener('input', calculateTotal);
+    qty2Input.addEventListener('input', calculateTotal);
+
+    document.getElementById('orderForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const { q1, q2, total } = calculateTotal();
+
+      if (q1 === 0 && q2 === 0) {
+        alert('กรุณาเลือกสินค้าอย่างน้อย 1 ชิ้นครับ');
+        return;
+      }
+
+      const itemsList = [];
+      if (q1 > 0) itemsList.push(`[SOAP-001] สบู่ขมิ้นชัน x ${q1}`);
+      if (q2 > 0) itemsList.push(`[SOAP-002] สบู่สครับกาแฟ x ${q2}`);
+
+      const payload = {
+        action: 'create',
+        customerName: document.getElementById('customerName').value,
+        phone: document.getElementById('phone').value,
+        address: document.getElementById('address').value,
+        items: itemsList.join(' | '),
+        totalPrice: total
+      };
+
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.textContent = 'กำลังบันทึกคำสั่งซื้อ...';
+
+      try {
+        const res = await fetch(SCRIPT_URL, {
+          method: 'POST',
+          body: JSON.stringify(payload)
+        });
+        const result = await res.json();
+        if (result.status === 'success') {
+          alert(`สั่งซื้อสำเร็จ! รหัสคำสั่งซื้อของคุณคือ: ${result.orderId}`);
+          document.getElementById('orderForm').reset();
+          qty1Input.value = 1;
+          calculateTotal();
+        }
+      } catch (err) {
+        alert('เกิดข้อผิดพลาดในการเชื่อมต่อฐานข้อมูล กรุณาลองใหม่อีกครั้ง');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'ยืนยันการสั่งซื้อ';
+      }
+    });
+  </script>
+</body>
+</html>
